@@ -1,0 +1,335 @@
+<section ng-init="switchVal()">
+	
+	<div class="row">
+		<div class="col-xs-2 col-md-2">
+			<a href="/home" class="btn btn-primary" >Back</a>
+		</div>
+		<div class="col-xs-7 col-md-8">
+		  <h2 class="text">Joining Checklist of {{user.Username}} </h2>  
+		</div>
+		<div class="col-xs-3 col-md-2 sav">
+			<button type="button" class="btn btn-primary sav  " ng-click="saveVal()" value="Save">Save Changes</button>
+	 	</div>
+
+	</div>
+	<div class="row align">
+		<div ng-show="message" class="alert alert-dismissable alert-success" role="alert">{{message}}</div>
+	</div>
+	<ul class="nav nav-tabs">
+	    <li class="{{hrActive}} tab"><a ng-click="showTab('hr')" href="#HR">HR</a></li>
+	    <li class="{{docActive}} tab"><a  ng-click="showTab('documentation')" href="#Documentation">Documentation</a></li>
+	    <li class="{{rbdActive}} tab"><a  ng-click="showTab('rbd')" href="#Rbd">R&BD</a></li>
+	    <li class="{{networkActive}} tab"><a  ng-click="showTab('network')" href="#Network">Network</a></li>
+	</ul>
+	<!-- HR -->
+	<div class="calendarNav ng-hide tab-pane fade in active" id="hr" ng-show="hr">
+	    <div class="row align">
+			<div class="text-center form-group">
+			    <label>Responsible Person:</label>
+				<select name="emp" class="form-control select" data-ng-model="emp" data-ng-change="setEmployee(emp)" ng-init="emp='Select Employee Name'">
+
+					<option value="Select Employee Name" disabled>Select Employee Name</option>
+					<option value="Ritika_Roshan">Ritika Roshan</option>
+					<option value="Ravi_Kumar">Ravi Kumar</option>
+					
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-md-7 text-rightc">
+				<label>Updated Employee Information Sheet ?</label>
+			</div>
+			<div class="col-xs-4 col-md-4">
+				<switch id="infosheet" name="infosheet"  ng-model="infosheet"  class="green" ></switch>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-md-7 text-rightc">
+				<label>Added to Address Book from list of MSS ?</label>
+			</div>
+			<div class="col-xs-4 col-md-4">
+				<switch id="addr" name="addr" ng-model="addr" class="green"></switch>
+  			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-md-7 text-rightc">
+				<label>Added to Biometric System ?</label>
+			</div>
+			<div class="col-xs-4 col-md-4">
+				<switch id="biometric" name="biometric" ng-model="biometric" class="green"></switch>
+  			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-md-7 text-rightc">	
+				<label>MSS-Team Folder Updated ?</label>
+			</div>
+			<div class="col-xs-4 col-md-4">
+				<switch id="teamfolder" name="teamfolder" ng-model="teamfolder" class="green"></switch>
+  			</div>
+		</div>
+	</div>
+	<!-- Documentation -->
+	<div id="documentation" class="calendarNav ng-hide tab-pane fade in active" ng-show="documentation">
+	    <div class="row align">
+			<div class="text-center form-group">
+			 	<label>Responsible Person:</label>
+				<select name="emp" class="form-control select" data-ng-model="emp" data-ng-change="setEmployee(emp)" ng-init="emp='Select Employee Name'">
+
+					<option value="Select Employee Name" disabled>Select Employee Name</option>
+					<option value="Ritika_Roshan">Ritika Roshan</option>
+					<option value="Ravi_Kumar">Ravi Kumar</option>
+
+				</select>
+			</div>
+		</div>
+    	<div class="col-md-6">
+	    	<div class="row">
+	    		<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Copy of Offer Letter Given</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="offletter" name="offletter" ng-model="offletter" class="green"></switch>
+	  			</div>	
+	  		</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>ID Proof</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="idproof" name="idproof" ng-model="idproof" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Address Proof</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="addrproof" name="addrproof" ng-model="addrproof" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Date of Birth certificate</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="dob" name="dob" ng-model="dob" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Training Certificate if Fresher</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="training" name="training" ng-model="training" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Last 2 Salary Slips</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="slip" name="slip" ng-model="slip" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Passport Size Photographs 8</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="photo" name="photo" ng-model="photo" class="green"></switch>
+	  			</div>
+			</div>
+		</div>	
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Qualification Certificates</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="qual" name="qual" ng-model="qual" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Experience/Relieving letter from previous organization</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="exp" name="exp" ng-model="exp" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Medical Certificate & Fitness Certificate</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="medical" name="medical" ng-model="medical" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Bank Account Number</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="account" name="account" ng-model="account" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Joining Report of New Employees</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="report" name="report" ng-model="report" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Code of Conduct and Ethical Standards</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="standards" name="standards" ng-model="standards" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Employee Agreement</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="agreement" name="agreement" ng-model="agreement" class="green"></switch>
+	  			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-8 text-rightc">
+					<label>Acknowledgement of Appointment Letter</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="ack" name="ack" ng-model="ack" class="green"></switch>
+	  			</div>
+			</div>
+		</div>
+	</div>
+	<div id="rbd" class="calendarNav ng-hide tab-pane fade in active" ng-show="rbd">
+	    <div class="row align">
+			<div class="text-center form-group">
+				<label>Responsible Person:</label>
+				<select name="emp" class="form-control select" data-ng-model="emp" data-ng-change="setEmployee(emp)" ng-init="emp='Select Employee Name'">
+					
+					<option value="Select Employee Name" disabled>Select Employee Name</option>
+					<option value="Ritika_Roshan">Ritika Roshan</option>
+					<option value="Ravi_Kumar">Ravi Kumar</option>
+
+				</select>
+			</div>
+		</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Create Biddle Account</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="biddle" name="biddle" ng-model="biddle" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Cover Letter / All relevant data</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="cover" name="cover" ng-model="cover" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Google Drive Access</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="google" name="google" ng-model="google" class="green"></switch>
+  				</div>
+			</div>
+	</div>
+	<div id="network" class="calendarNav ng-hide tab-pane fade in active" ng-show="network">
+		<div class="row align">
+		    <div class="text-center form-group">
+				<label>Responsible Person:</label>
+				<select name="emp" class="form-control select" data-ng-model="emp" data-ng-change="setEmployee(emp)" ng-init="emp='Select Employee Name'">
+
+					<option value="Select Employee Name" disabled>Select Employee Name</option>
+					<option value="Ritika_Roshan">Ritika Roshan</option>
+					<option value="Ravi_Kumar">Ravi Kumar</option>
+
+				</select>
+			</div>
+		</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Added static IP in Firewall?</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="firewall" name="firewall" ng-model="firewall" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Gmail Id – Create strong password and configured in thunderbird?</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="pswd" name="pswd" ng-model="pswd" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Created Skype Id Email should be mss email and strong password?</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="skype" name="skype" ng-model="skype" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Redmine Account</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="redmine" name="redmine" ng-model="redmine" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Create Bitbucket Account</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="bitbucket" name="bitbucket" ng-model="bitbucket" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Create Git Account</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="git" name="git" ng-model="git" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Create Dropbox Account</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="dropbox" name="dropbox" ng-model="dropbox" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Create Local Database User</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="localdb" name="localdb" ng-model="localdb" class="green"></switch>
+  				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-md-7 text-rightc">
+					<label>Create Local FTP account</label>
+				</div>
+				<div class="col-xs-4 col-md-4">
+					<switch id="localftp" name="localftp" ng-model="localftp" class="green"></switch>
+  				</div>
+			</div>
+	</div>
+</section>

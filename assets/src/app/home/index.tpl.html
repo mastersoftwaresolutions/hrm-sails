@@ -1,0 +1,73 @@
+<section ng-init="employeeVal()">
+	
+	<div class="row">
+		<div class="text-center form-group">
+			<select name="emp" class="form-control select" data-ng-model="emp" data-ng-change="setEmployee(emp)"  ng-init="emp='selectp'"  >
+				<option value="selectp">Select Employee Name</option>
+				<option data-ng-repeat="data in $root.empdata" value="{{data.first_name}} {{data.last_name}} /{{data.id}}">{{data.first_name}}   {{data.last_name}}</option>
+				
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="text-center form-group">
+				<a href="javascript:void(0)" ng-click="rehome()" class="btn btn-primary">Initiate Joining</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="text-center form-group">
+				<a class="btn btn-primary">Initiate Relieving</a>
+		</div>
+	</div>
+	<div class="row cus">
+		<div class="col-md-6 col-xs-6 txt-left">
+			<div class="input-group">
+			 	<input class="form-control" ng-model="searchText"  type="search" placeholder="Search by Name">
+			</div>
+		</div>	
+		<div class="col-md-6 text-right">
+			<label class="checkbox inline ckh">
+	  			<input type="checkbox" ng-checked="true" class="cuss" ng-model="search.status_u" ng-true-value=""  data-ng-false-value=''> All
+			</label>
+			<label class="checkbox inline ckh">
+	  			<input type="checkbox" ng-model="search.status_u"  class="cuss1" ng-true-value="Pending"  data-ng-false-value=''> Pending
+			</label>
+			<label class="checkbox inline ckh">
+	  			<input type="checkbox" ng-model="search.status_u"  class="cuss1" ng-true-value="Complete"  data-ng-false-value=''> Complete
+			</label>
+		</div>
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th><strong>Employee ID</strong></th>
+					<th><strong>Employee Name</strong></th>
+					<th><strong>Pending Sections?</strong></th>
+					<th><strong>Status</strong></th>
+					<th><strong>Action</strong></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr data-ng-repeat="emp in finalData | filter:search.status_u | filter:{first_name:searchText}" ng-show="emp.status == 1">
+					<td><strong>{{$index + 1}}</strong></td>
+					<td><strong>{{emp.first_name}}   {{emp.last_name}}</strong></td>
+					<td>
+						<a ng-click="redirtTo(emp.id, emp.first_name+' '+emp.last_name, val)" ng-repeat="val in emp.section">
+							<strong class="btn btn-primary roundd" ng-show="emp.section[0]">{{val}} </strong>
+						</a>
+							<strong ng-show="!emp.section[0]" class="btn btn-success rounded">All Done</strong>
+					</td>
+					<td><strong>{{emp.status_u}}</strong></td>
+					<td>
+						<a class="btn btn-primary" ng-click="redirt(emp.id, emp.first_name+' '+emp.last_name)">
+								<i class="glyphicon glyphicon-eye-open"></i>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
